@@ -118,3 +118,30 @@ const userResponse: ApiResponse<StaffMember>={
 
 console.log("Api response: ", userResponse);
 
+// Utility Types
+type Profile = {
+    id:number;
+    username: string,
+    email: string;
+    bio: string;
+}
+
+// Partial - робить всі поля необов'язковими
+type UpdateProfileDto = Partial<Profile>;
+// Readonly - робить усі поля тільки для читання
+type ReadonlyProfile = Readonly<Profile>;
+
+// Pick - дозволяє дістати частину полів
+type PublicProfile = Pick<Profile, "username"|"bio">;
+
+// Omit - дозволяє виключити вказані поля
+type ProfileWithoutId = Omit<Profile, "id">;
+
+const StatusCodes = {
+    Approved: "approved",
+    Pending: 'pending',
+    Rejected: 'rejected'
+} as const;
+
+console.log(typeof StatusCodes)
+const Errors = [keyof typeof StatusCodes]
