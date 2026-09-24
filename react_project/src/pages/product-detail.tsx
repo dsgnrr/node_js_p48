@@ -1,4 +1,9 @@
+import { useParams } from "react-router-dom";
+
 const ProductDetailPage = () => {
+
+    const {id} = useParams();
+
     return (
         <div className="animate-fade-in flex flex-col h-full justify-between">
             <div>
@@ -9,7 +14,7 @@ const ProductDetailPage = () => {
 
                 {/* Назва та ціна */}
                 <div className="flex justify-between items-start mb-3">
-                    <h2 className="text-2xl font-bold text-gray-900">Назва обраного товару</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Назва обраного товару#{id}</h2>
                     <span className="text-xl font-black text-indigo-600">4 500 ₴</span>
                 </div>
 

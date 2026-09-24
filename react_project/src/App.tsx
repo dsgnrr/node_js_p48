@@ -35,7 +35,7 @@ const App = () => {
                 </div>
             </header>
 
-
+            {/* Content */}
             <div>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
@@ -46,6 +46,10 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>
+            {/* End content */}
+
+            
+            <footer><h1>Footer</h1></footer>
         </div>
     )
 }
