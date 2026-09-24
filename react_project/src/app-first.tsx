@@ -1,21 +1,26 @@
 import { useState } from "react";
-import UserCard from "./components/user/user-card";
-import "./App.css";
+import UserCard from "./components/user/user-card.jsx";
+// import "./App.css";
 
-const App = () => {
+interface User {
+  id: string;
+  name: string;
+}
 
-  const [counter, setCounter] = useState(0);
+const AppFirst = () => {
 
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-  const isDisabled = false;
-  const users = [
+  const [counter, setCounter] = useState<number>(0);
+
+  const [numbers, setNumbers] = useState<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const isDisabled: boolean = false;
+  const users:User[] = [
     {
       id: "u1", name: "Ivan",
     },
-    {id: "u2", name: "Olga"}
+    { id: "u2", name: "Olga" }
   ]
 
-  const framework = 'React';
+  const framework:string = 'React';
 
   // let counter = 0;
   // setInterval(() => {
@@ -31,9 +36,9 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <h1 className="welcome_title">Welcome to {framework}</h1>
-      <button disabled={isDisabled} onClick={() => setCounter(counter + 1)} className="button">Click: {counter}</button>
+    <div className="flex flex-col m-0 mx-auto items-center">
+      <h1 className="font-sans text-[10vh] border-b-2 border-b-[#136fc5]">Welcome to {framework}</h1>
+      <button disabled={isDisabled} onClick={() => setCounter(counter + 1)} className="text-[5vh] uppercase p-10 bg-[azure] border-[#b1acac]  border-solid rounded-2xl active:bg-blue-300 }">Click: {counter}</button>
       <ul>
         {numbers.length == 0 ? (<li>No elements</li>) :
           numbers.map((v, i) => (
@@ -43,7 +48,7 @@ const App = () => {
 
       <ul>
         {
-          users.map(u=>(
+          users.map(u => (
             <li key={u.id}>{u.name}</li>
           ))
         }
@@ -53,4 +58,4 @@ const App = () => {
   )
 }
 
-export default App;
+export default AppFirst;
