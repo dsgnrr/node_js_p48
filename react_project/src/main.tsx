@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import AppFirst from './app-first.js'
-import TailwindPage from './tailwind-intro.js';
 import "./index.css";
 import { BrowserRouter } from 'react-router-dom';
-import App from './App.js';
 
 
 const rootElement = document.getElementById('root');
@@ -17,9 +14,9 @@ const root = ReactDOM.createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
+    {/* Провайдер навігації */}
     <BrowserRouter>
-      <App/>
-      {/* <TailwindPage/> */}
+      
     </BrowserRouter>
   </React.StrictMode>,
 )

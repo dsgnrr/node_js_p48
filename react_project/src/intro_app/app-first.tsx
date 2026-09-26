@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserCard from "./components/user/user-card.jsx";
+import UserCard from "../components/user/user-card.jsx";
 // import "./App.css";
 
 interface User {
