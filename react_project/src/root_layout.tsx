@@ -13,8 +13,8 @@ const RootLayout: React.FC = () => {
                 </Link>
 
                 <div className="text-2xl text-amber-50 uppercase underline flex gap-4">
-                    <NavLink className="hover:text-neutral-400" to='profile'>Profile</NavLink>
-                    <NavLink className="hover:text-neutral-400" to='profile/1'>Profile1</NavLink>
+                    <NavLink className="hover:text-neutral-400" to='/profile'>Profile</NavLink>
+                    <NavLink className="hover:text-neutral-400" to='/profile/1'>Profile1</NavLink>
                     <NavLink className="hover:text-neutral-400" to='/test'>Test404</NavLink>
                 </div>
             </header>
