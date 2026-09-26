@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
 type UserParams = {
     id: string;
@@ -7,17 +7,20 @@ type UserParams = {
 const ProfilePage = ()=>{
     const {id} = useParams<UserParams>();
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const location = useLocation();
 
+    const state = location.state;
+    const [searchParams, setSearchParams] = useSearchParams();
+    console.log(state);
     if(searchParams.size !==0){
         let listItems: string[]=[];
         searchParams.forEach((v,k)=>{
             listItems.push(`<li> ${k}->${v}</li>`);
         })
 
-        return <ul>
-            {listItems}
-        </ul>
+        // setSearchParams({query:'Hello'});
+        return <ul dangerouslySetInnerHTML={{__html: listItems}}/>
+            
     }
 
     if(id){
@@ -25,7 +28,11 @@ const ProfilePage = ()=>{
     }
 
     return(
+        <div>
         <h1>ProfilePage</h1>
+        <p>Path: {location.pathname}</p>
+        <p>State: {state.toString()}</p>
+        </div>
     )
 }
 export default ProfilePage;
