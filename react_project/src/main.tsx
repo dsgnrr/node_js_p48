@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import "./index.css";
 import { BrowserRouter } from 'react-router-dom';
 import RootLayout from './root_layout.js';
+import App from './App.js';
 
 
 const rootElement = document.getElementById('root');
@@ -13,11 +14,17 @@ if (!rootElement) {
 
 const root = ReactDOM.createRoot(rootElement);
 
+// root.render(
+//   <React.StrictMode>
+//     {/* Провайдер навігації */}
+//     <BrowserRouter>
+//       <RootLayout/>
+//     </BrowserRouter>
+//   </React.StrictMode>,
+// )
+
 root.render(
   <React.StrictMode>
-    {/* Провайдер навігації */}
-    <BrowserRouter>
-      <RootLayout/>
-    </BrowserRouter>
+    <App/>
   </React.StrictMode>,
 )
