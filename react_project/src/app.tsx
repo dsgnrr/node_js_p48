@@ -4,6 +4,9 @@ import HomePage from "./pages/home.js";
 import ProfilePage from "./pages/profile.js";
 import RootLayout from "./root_layout.js";
 import React from "react";
+import ClassPage from "./pages/class_component.js";
+import TestPage from "./pages/test.js";
+import PropsPage from "./pages/props.js";
 
 
 const NotFoundPage = ()=><div>
@@ -28,6 +31,18 @@ const router = createBrowserRouter([
                 path: 'profile',
                 element: <ProfilePage/>
             },
+            {
+                path: 'test',
+                element: <TestPage/>
+            },
+            {
+                path:"props",
+                element:<PropsPage/>
+            },
+            {
+                path: 'class-page',
+                element: <ClassPage title="Class component"/>
+            }
             
         ]
     },

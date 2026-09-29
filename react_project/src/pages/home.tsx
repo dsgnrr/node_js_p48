@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -10,8 +10,15 @@ const HomePage = () => {
     }
     return (
         <div>
-            <h1>HomePage</h1>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleButton}>Next page</button>
+
+            <h1 className="text-4xl font-bold">Site map</h1>
+            <hr className="border-2 border-blue-500"/>
+            <ul className="text-blue-600 text-2xl underline">
+                <li><Link className="hover:text-blue-800" to="/class-page">Class component</Link></li>
+                <li><Link className="hover:text-blue-800" to="/props">Props and child component</Link></li>
+                <li><Link className="hover:text-blue-800" to="/test">Use effect</Link></li>
+            </ul>
         </div>
 
     )
