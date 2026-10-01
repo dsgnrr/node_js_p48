@@ -18,9 +18,29 @@ interface ProductCardProps{
     title:string;
     price: number;
     imageUrl:string;
-    isFavorite:
+    isFavorite: boolean;
+    onAddToCart: ()=> void;
+    onToggleFavorite: ()=>void;
 }
 
+const ProductCardUI= ({}:ProductCardProps)=>{
+    return(
+        <div>
+            
+        </div>
+    )
+}
+
+// Smart component
+
+const ProductCardContainer = ({/**product: Product */})=>{
+    const addToCard = async()=>{
+        // api add product to cart
+    }
+    const toggleFavorite = async()=>{
+        
+    }
+}
 
 const SmartDubmCompPage:React.FC=()=>{
     return(
