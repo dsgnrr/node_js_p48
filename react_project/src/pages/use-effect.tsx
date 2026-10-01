@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TestPage = () => {
+const UseEffectPage = () => {
 
     /**Створіть дві кнопки, одна збільшує кількість поідомлень, друга обнуляє
     якщо кількість повідолмень більше 0 оновити заголовок сторінки: Нових повідомлень: кількість
@@ -53,4 +53,4 @@ const TestPage = () => {
     )
 }
 
-export default TestPage;
+export default UseEffectPage;

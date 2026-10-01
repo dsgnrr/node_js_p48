@@ -17,7 +17,7 @@ const HomePage = () => {
             <ul className="text-blue-600 text-2xl underline">
                 <li><Link className="hover:text-blue-800" to="/class-page">Class component</Link></li>
                 <li><Link className="hover:text-blue-800" to="/props">Props and child component</Link></li>
-                <li><Link className="hover:text-blue-800" to="/test">Use effect</Link></li>
+                <li><Link className="hover:text-blue-800" to="/use-effect">Use effect</Link></li>
             </ul>
         </div>
 

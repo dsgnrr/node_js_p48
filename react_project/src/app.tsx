@@ -5,7 +5,7 @@ import ProfilePage from "./pages/profile.js";
 import RootLayout from "./root_layout.js";
 import React from "react";
 import ClassPage from "./pages/class_component.js";
-import TestPage from "./pages/test.js";
+import UseEffectPage from "./pages/use-effect.js";
 import PropsPage from "./pages/props.js";
 
 
@@ -32,8 +32,8 @@ const router = createBrowserRouter([
                 element: <ProfilePage/>
             },
             {
-                path: 'test',
-                element: <TestPage/>
+                path: 'use-effect',
+                element: <UseEffectPage/>
             },
             {
                 path:"props",
