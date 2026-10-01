@@ -7,6 +7,8 @@ import React from "react";
 import ClassPage from "./pages/class_component.js";
 import UseEffectPage from "./pages/use-effect.js";
 import PropsPage from "./pages/props.js";
+import UseRefPage from "./pages/use-ref.js";
+import SmartDubmCompPage from "./pages/smart-dumb-comp.js";
 
 
 const NotFoundPage = ()=><div>
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
             {
                 path: 'class-page',
                 element: <ClassPage title="Class component"/>
+            },
+            {
+                path:'use-ref',
+                element: <UseRefPage/>
+            },
+            {
+                path: 'smart-dumb',
+                element: <SmartDubmCompPage/>
             }
             
         ]
