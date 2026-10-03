@@ -73,6 +73,15 @@ const CoursePage: React.FC = () => {
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
                         </div>
+                        <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <div className="md:w-1/3"></div>
+                            <label className="md:w-2/3 block text-gray-500 font-bold">
+                                <input className="mr-2 leading-tight" type="checkbox" />
+                                <span className="text-sm">
+                                    Send me your newsletter!
+                                </span>
+                            </label>
+                        </div>
                     </div>
                 </form>
             </div>
