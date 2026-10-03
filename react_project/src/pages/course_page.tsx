@@ -24,14 +24,16 @@ const CoursePage: React.FC = () => {
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-first-name">
                                 Title*
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" type="text" placeholder="C++, Python etc." value = {formData.title} />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-first-name" name='title' type="text" placeholder="C++, Python etc." value = {formData.title} />
                             {/* <p className="text-red-500 text-xs italic">Please fill out this field.</p> */}
                         </div>
                         <div className="w-full md:w-1/2 px-3">
                             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
                                 Description
                             </label>
-                            <textarea className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" placeholder="Tell about course" />
+                            <textarea
+                            name="description" className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name"
+                            value={formData.description} placeholder="Tell about course" />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-2">
@@ -41,7 +43,7 @@ const CoursePage: React.FC = () => {
                                 Course level*
                             </label>
                             <div className="relative">
-                                <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                                <select className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" name="level" value={formData.level}>
                                     <option value={"beginner"}>Beginner</option>
                                     <option value={"intermediate"}>Intermediate</option>
                                     <option value={"advanced"}>Advanced</option>
