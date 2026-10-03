@@ -9,6 +9,7 @@ import UseEffectPage from "./pages/use-effect.js";
 import PropsPage from "./pages/props.js";
 import UseRefPage from "./pages/use-ref.js";
 import SmartDubmCompPage from "./pages/smart-dumb-comp.js";
+import CoursePage from "./pages/course_page.js";
 
 
 const NotFoundPage = ()=><div>
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
             {
                 path: 'smart-dumb',
                 element: <SmartDubmCompPage/>
+            },
+            {
+                path: 'zod-page',
+                element: <CoursePage/>
             }
             
         ]
