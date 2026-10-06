@@ -4,8 +4,8 @@ export const moduleSchema = z.object({
     title: z.string().min(3, 'Title must have 3 letters at least')
         .max(50, 'Maximum 50 letters for title'),
 
-    description: z.string().max(200, 'Maximum 200 symbols for description')
-        .optional(), // nullish() = optional().nullable()
+    description: z.string().min(10, "Minimum 10 letters").max(200, 'Maximum 200 symbols for description')
+        .optional().or(z.literal("")), // nullish() = optional().nullable()
 
     level: z.enum(['beginner', 'intermediate', 'advanced'], {
         message: 'Please selectr one option: beginner, intermediate, advanced',
@@ -17,6 +17,8 @@ export const moduleSchema = z.object({
     isPublished: z.boolean()
 })
 
+
 // export type ModuleFormData = z.infer<typeof moduleSchema>["form"];
 export type ModuleFormData = z.infer<typeof moduleSchema>;
+
 

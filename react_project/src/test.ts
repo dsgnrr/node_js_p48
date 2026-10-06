@@ -4,12 +4,13 @@ import type { ModuleFormData } from "./schemas/moduleSchema.js";
 
 
 const course:ModuleFormData = {
-    title: 'C#',
+    title: 'C+',
     description: 'C++ better than Python',
     level: 'advanced',
-    durationHours: 1213123,
+    durationHours: 12,
     isPublished: true
 }
 
-const result = moduleSchema.parse(course);
+const result = moduleSchema.safeParse(course);
+if(!result.success) console.log(result.error)
 console.log(result);
