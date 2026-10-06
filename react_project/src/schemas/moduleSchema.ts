@@ -17,8 +17,35 @@ export const moduleSchema = z.object({
     isPublished: z.boolean()
 })
 
+// створюємо массив схем
+const modulesSchema = z.array(moduleSchema);
+
+// розширення схеми
+const newType = moduleSchema.extend({
+    price: z.number().min(10, "Minimal price is $10")
+})
+
+// видалення властивості зі схеми
+const courseWithoutDescription = moduleSchema.omit({description: true});
+
+// робимо поля з доступом тільки на читання
+const courseReadOnly = moduleSchema.readonly();
+// робимо усі поля необов'язковими
+const courseOptional = moduleSchema.partial();
+
+// схеми перетвоюємо на типи
+type ReadonlyCourse = z.infer<typeof courseReadOnly>;
+type OptionalCourse = z.infer<typeof courseOptional>
+
+type ModulesData = z.infer<typeof modulesSchema>;
 
 // export type ModuleFormData = z.infer<typeof moduleSchema>["form"];
 export type ModuleFormData = z.infer<typeof moduleSchema>;
 
+export const filterSchema = z.object({
+    search: z.string().trim(),
+    page: z.coerce.number().min(1).default(1),
+    startDate: z.string().transform((str)=> new Date(str))
+})
 
+export type FilterValues = z.infer<typeof filterSchema>;
