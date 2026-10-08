@@ -49,3 +49,40 @@ export const filterSchema = z.object({
 })
 
 export type FilterValues = z.infer<typeof filterSchema>;
+
+
+export const registerSchema = z.object({
+    username: z.string().min(2, "Login must have 2 symbols minimum"),
+    email: z.email(),
+    password: z.string().min(8, "Password length 8 minimum"),
+    confirmPassword: z.string().min(8,"Confirm password length 8 minimum")
+})
+.refine((data)=>{
+    return data.password === data.confirmPassword
+},{
+    message:"Password are same",
+    path:["confirmPassword"]
+})
+
+export const profileSchema = z.object({
+    role: z.enum(["admin", 'user']),
+    secretKey: z.string().optional()
+}).superRefine((data, ctx)=>{
+    if(data.role === 'admin' && !data.secretKey){
+        ctx.addIssue({
+            code: "custom",
+            message: 'Admin must have a secret key',
+            path: ['secretKey']
+        })
+    }
+    if(data.secretKey && data.secretKey.length < 10){
+        ctx.addIssue({
+            code: "custom",
+            message: 'Key is short',
+            path: ['secretKey']
+        })
+    }
+})
+
+export type RegisterForm = z.infer<typeof registerSchema>
+export type ProfileFirn = z.infer<typeof profileSchema>

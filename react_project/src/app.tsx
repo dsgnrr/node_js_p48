@@ -10,6 +10,9 @@ import PropsPage from "./pages/props.js";
 import UseRefPage from "./pages/use-ref.js";
 import SmartDubmCompPage from "./pages/smart-dumb-comp.js";
 import CoursePage from "./pages/course_page.js";
+import AuthForm from "./pages/hook-form.js";
+import ZodForm from "./pages/zod-resolver.js";
+import UserPage from "./pages/user-page.js";
 
 
 const NotFoundPage = ()=><div>
@@ -57,8 +60,19 @@ const router = createBrowserRouter([
             {
                 path: 'zod-page',
                 element: <CoursePage/>
+            },
+            {
+                path: 'hook-form',
+                element: <AuthForm/>
+            },
+            {
+                path: 'zod-form',
+                element: <ZodForm/>
+            },
+            {
+                path:'user-page',
+                element:<UserPage/>
             }
-            
         ]
     },
     {

@@ -20,7 +20,10 @@ const HomePage = () => {
                 <li><Link className="hover:text-blue-800" to="/use-effect">Use effect</Link></li>
                 <li><Link className="hover:text-blue-800" to="/use-ref">Use Ref</Link></li>
                 <li><Link className="hover:text-blue-800" to="/smart-dumb">Smart/Dumb component</Link></li>
-                <li><Link className="hover:text-blue-800" to="/zod-page">Zod Page</Link></li>
+                <li><Link className="hover:text-blue-800" to="/zod-page">Zod intro</Link></li>
+                <li><Link className="hover:text-blue-800" to="/hook-form">React hook form</Link></li>
+                <li><Link className="hover:text-blue-800" to="/zod-form">React hook form + Zod</Link></li>
+                <li><Link className="hover:text-blue-800" to="/user-page">Using fetch in React</Link></li>
             </ul>
         </div>
 
