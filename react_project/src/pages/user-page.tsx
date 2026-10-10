@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
+import type { AxiosResponse } from "axios";
 
 interface UserData {
     id: number;
@@ -16,7 +18,8 @@ const UserPage = () => {
     useEffect(() => {
         setIsLoading(true);
         setError(undefined);
-
+        const controller = new AbortController();
+        // fetch
         const getUserData = async () => {
             const result = await fetch('https://dummyjson.com/users/1');
             if (result.ok) {
@@ -27,9 +30,28 @@ const UserPage = () => {
             }
             setError(`${result.status} Error while get data`);
         }
-
-        getUserData();
-
+        // axios
+        const getUserDataAxios = async ()=>{
+            try {
+                const response = await axios.get('https://dummyjson.com/users/1',
+                    {
+                        signal: controller.signal
+                    }
+                )
+                setUser(response.data)
+            } catch (error) {
+                if(!axios.isCancel(error)){
+                    setError(`Error while get data: ${error}`);
+                }
+            }finally{
+                setIsLoading(false);
+            }
+        }
+        getUserDataAxios();
+        // getUserData();
+        return()=>{
+            controller.abort();
+        }
     }, [])
     /**додайте форму для завантаження користувача
      * https://dummyjson.com/users/add'
