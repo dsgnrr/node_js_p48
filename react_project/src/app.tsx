@@ -13,6 +13,7 @@ import CoursePage from "./pages/course_page.js";
 import AuthForm from "./pages/hook-form.js";
 import ZodForm from "./pages/zod-resolver.js";
 import UserPage from "./pages/user-page.js";
+import TanStackQueryPage from "./pages/tanstack-query.js";
 
 
 const NotFoundPage = ()=><div>
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
                 path:'user-page',
                 element:<UserPage/>
+            },
+            {
+                path:'tanstack-query',
+                element: <TanStackQueryPage/>
             }
         ]
     },

@@ -24,6 +24,7 @@ const HomePage = () => {
                 <li><Link className="hover:text-blue-800" to="/hook-form">React hook form</Link></li>
                 <li><Link className="hover:text-blue-800" to="/zod-form">React hook form + Zod</Link></li>
                 <li><Link className="hover:text-blue-800" to="/user-page">Using fetch in React</Link></li>
+                <li><Link className="hover:text-blue-800" to="/tanstack-query">Using tanstack query(React Query)</Link></li>
             </ul>
         </div>
 

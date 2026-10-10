@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter } from 'react-router-dom';
 import RootLayout from './root_layout.js';
 import App from './app.js';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 const rootElement = document.getElementById('root');
@@ -23,8 +24,12 @@ const root = ReactDOM.createRoot(rootElement);
 //   </React.StrictMode>,
 // )
 
+const queryClient = new QueryClient();
+
 root.render(
   <React.StrictMode>
-    <App/>
+    <QueryClientProvider client={queryClient}>
+      <App/>
+    </QueryClientProvider>
   </React.StrictMode>
 )

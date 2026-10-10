@@ -2,7 +2,8 @@ import z from "zod";
 import { moduleSchema } from "./schemas/moduleSchema.js";
 import type { ModuleFormData ,RegisterForm, ProfileFirn } from "./schemas/moduleSchema.js";
 import { registerSchema, profileSchema } from "./schemas/moduleSchema.js";
-
+import { UserService } from "./api/user-service.js";
+import type { User } from "./api/user-service.js";
 
 // const course:ModuleFormData = {
 //     title: 'C+',
@@ -15,6 +16,11 @@ import { registerSchema, profileSchema } from "./schemas/moduleSchema.js";
 // const result = moduleSchema.safeParse(course);
 // if(!result.success) console.log(result.error)
 // console.log(result);
+
+const controller = new AbortController();
+
+UserService.getUsers(controller.signal).then(console.log).catch(console.error)
+UserService.getUserById(1,controller.signal).then(console.log).catch(console.error)
 
 const register:RegisterForm = {
     username:"user",
