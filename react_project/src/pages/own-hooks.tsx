@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useDebounce from "../hooks/use-debounce.js";
 import useLocalStorage from "../hooks/use-local-storage.js";
+import { ThemeContext } from "../context/theme-context.js";
 
 const OwnHooksPage = () => {
 
@@ -27,8 +28,11 @@ const OwnHooksPage = () => {
 
     //#endregion useLocalStorage
 
+    const themeFromContext = useContext(ThemeContext);
+
     return (
         <div>
+            <h1>Current theme: {themeFromContext}</h1>
             <div>
                 <h1>1. Hook: useDebounce</h1>
                 <input className="

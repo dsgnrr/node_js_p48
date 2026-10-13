@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 import HomePage from "./pages/home.js";
 import ProfilePage from "./pages/profile.js";
 import RootLayout from "./root_layout.js";
-import React from "react";
+import React, { useState } from "react";
 import ClassPage from "./pages/class_component.js";
 import UseEffectPage from "./pages/use-effect.js";
 import PropsPage from "./pages/props.js";
@@ -15,83 +15,89 @@ import ZodForm from "./pages/zod-resolver.js";
 import UserPage from "./pages/user-page.js";
 import TanStackQueryPage from "./pages/tanstack-query.js";
 import OwnHooksPage from "./pages/own-hooks.js";
+import { ThemeContext } from "./context/theme-context.js";
 
 
-const NotFoundPage = ()=><div>
+const NotFoundPage = () => <div>
     <h1 className="text-7xl text-red-950 uppercase font-bold">404 Not Found. </h1>
     <Link to='/'>Go gome</Link>
 </div>
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element: <RootLayout/>,
-        children:[
+        path: '/',
+        element: <RootLayout />,
+        children: [
             {
                 index: true,
-                element: <HomePage/>
+                element: <HomePage />
             },
             {
                 path: 'profile/:id',
-                element: <ProfilePage/>
+                element: <ProfilePage />
             },
             {
                 path: 'profile',
-                element: <ProfilePage/>
+                element: <ProfilePage />
             },
             {
                 path: 'use-effect',
-                element: <UseEffectPage/>
+                element: <UseEffectPage />
             },
             {
-                path:"props",
-                element:<PropsPage/>
+                path: "props",
+                element: <PropsPage />
             },
             {
                 path: 'class-page',
-                element: <ClassPage title="Class component"/>
+                element: <ClassPage title="Class component" />
             },
             {
-                path:'use-ref',
-                element: <UseRefPage/>
+                path: 'use-ref',
+                element: <UseRefPage />
             },
             {
                 path: 'smart-dumb',
-                element: <SmartDubmCompPage/>
+                element: <SmartDubmCompPage />
             },
             {
                 path: 'zod-page',
-                element: <CoursePage/>
+                element: <CoursePage />
             },
             {
                 path: 'hook-form',
-                element: <AuthForm/>
+                element: <AuthForm />
             },
             {
                 path: 'zod-form',
-                element: <ZodForm/>
+                element: <ZodForm />
             },
             {
-                path:'user-page',
-                element:<UserPage/>
+                path: 'user-page',
+                element: <UserPage />
             },
             {
-                path:'tanstack-query',
-                element: <TanStackQueryPage/>
+                path: 'tanstack-query',
+                element: <TanStackQueryPage />
             },
             {
                 path: 'own-hooks',
-                element: <OwnHooksPage/>
+                element: <OwnHooksPage />
             }
         ]
     },
     {
         path: '*',
-        element: <NotFoundPage/>
+        element: <NotFoundPage />
     }
 ])
 
-const App:React.FC = ()=>{
-    return <RouterProvider router={router}/>
+const App: React.FC = () => {
+    const [theme, setTheme] = useState<'dark'|'light'>('light');
+    return (
+        <ThemeContext.Provider value={theme}>
+            <RouterProvider router={router} />
+        </ThemeContext.Provider>
+    )
 }
 export default App;
