@@ -15,7 +15,7 @@ import ZodForm from "./pages/zod-resolver.js";
 import UserPage from "./pages/user-page.js";
 import TanStackQueryPage from "./pages/tanstack-query.js";
 import OwnHooksPage from "./pages/own-hooks.js";
-import { ThemeContext } from "./context/theme-context.js";
+import { ThemeContext, ThemeProvider } from "./context/theme-context.js";
 
 
 const NotFoundPage = () => <div>
@@ -93,11 +93,17 @@ const router = createBrowserRouter([
 ])
 
 const App: React.FC = () => {
-    const [theme, setTheme] = useState<'dark'|'light'>('light');
+    // const [theme, setTheme] = useState<'dark'|'light'>('light');
+    // return (
+    //     <ThemeContext.Provider value={theme}>
+    //         <RouterProvider router={router} />
+    //     </ThemeContext.Provider>
+    // )
+
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeProvider>
             <RouterProvider router={router} />
-        </ThemeContext.Provider>
+        </ThemeProvider>
     )
 }
 export default App;

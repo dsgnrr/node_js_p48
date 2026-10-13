@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import useDebounce from "../hooks/use-debounce.js";
 import useLocalStorage from "../hooks/use-local-storage.js";
-import { ThemeContext } from "../context/theme-context.js";
+import { ThemeContext, useTheme } from "../context/theme-context.js";
 
 const OwnHooksPage = () => {
 
@@ -19,20 +19,29 @@ const OwnHooksPage = () => {
     // #endregion useDebounce
 
     //#region useLocalStorage
+    // логіку зі зберіганням теми у локальному сховищі, виносимо у ThemeContex path: ./src/context/theme-context.tsx
+    // const [theme, setTheme] = useLocalStorage<string>('app_theme', 'light');
 
-    const [theme, setTheme] = useLocalStorage<string>('app_theme', 'light');
-
+    // прямої необхідності в хендлері для конпки вже немає
+    // в onClick достатньо тепер передати switchTheme
+    // може знадобитись якщо окрім перемикання теми, ви ще виконуєте якусб додаткову логіку
     const changeTheme = () => {
-        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+        // тепер коли тему контролює ThemeContext виконувати цю інструкцію нам більше не потрібно
+        // setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+
+        // Достатньо викликати перемикач теми із контексту
+        switchTheme();
     }
 
     //#endregion useLocalStorage
 
-    const themeFromContext = useContext(ThemeContext);
+    // Отримуємо поточний стан теми із ThemeContext
+    // Хук потрібен для перевірки, що в додаток був впроваджений ThemeContext
+    const {theme, switchTheme} = useTheme();
 
     return (
         <div>
-            <h1>Current theme: {themeFromContext}</h1>
+            <h1>Current theme: {theme}</h1>
             <div>
                 <h1>1. Hook: useDebounce</h1>
                 <input className="
@@ -48,7 +57,7 @@ const OwnHooksPage = () => {
             </div>
             <div>
                 <h2>2. Hook: useLocalStorage</h2>
-                <button onClick={changeTheme} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button onClick={switchTheme} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Switch theme: {theme}
                 </button>
             </div>
