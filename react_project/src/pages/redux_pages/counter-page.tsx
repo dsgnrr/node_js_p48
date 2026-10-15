@@ -260,7 +260,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                                 <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
                                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
                                 <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
-                                <span className="ml-2">./src/pages/CounterPage.tsx</span>
+                                <span className="ml-2">./src/pages/redux_pages/CounterPage.tsx</span>
                             </span>
                         </div>
                         <SyntaxHighliter
