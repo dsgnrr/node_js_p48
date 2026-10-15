@@ -81,32 +81,34 @@ const CounterPage = () => {
                 </div>
             </section>
 
+            {/* РОЗДІЛЬНИК */}
             <div className="relative flex py-5 items-center mb-10">
                 <div className="grow border-t border-gray-200"></div>
-                <span className="shrink mx-4 text-gray-400 text-sm font-semibold uppercase tracking-widest">Освітній розділ</span>
+                <span className="shrink mx-4 text-gray-400 text-sm font-semibold uppercase tracking-widest">Освітній гайд</span>
                 <div className="grow border-t border-gray-200"></div>
             </div>
 
+            {/* БЛОК 2: ПОКРОКОВИЙ ІНСТРУКТАЖ */}
             <section className="bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-sm">
                 <div className="mb-8 border-b border-gray-200 pb-4">
                     <h2 className="text-3xl font-black text-gray-900 tracking-tight">Як налаштувати Redux</h2>
                     <p className="text-gray-500 mt-1">Покроковий посібник з інтеграції сучасного Redux Toolkit у React та TypeScript проєкт.</p>
                 </div>
 
-     
+                {/* Попередження */}
                 <div className="mb-8 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r-2xl shadow-sm">
                     <div className="flex items-start gap-3">
                         <span className="text-amber-600 text-xl font-bold">⚠️</span>
                         <div>
                             <h3 className="text-amber-900 font-bold text-base">Зверніть увагу</h3>
                             <p className="text-amber-800 text-sm mt-1 leading-relaxed">
-                                У шапці кожного блоку коду вказані конкретні шляхи до файлів (наприклад, <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-900 font-mono text-xs">./src/state/counterSlice.ts</code>). Уважно читайте <strong>детальні коментарі всередині коду</strong> — в них розписана логіка кожного рядка.
+                                У шапці кожного блоку коду вказані конкретні шляхи до файлів (наприклад, <code className="bg-amber-100 px-1.5 py-0.5 rounded text-amber-900 font-mono text-xs">./src/pages/CounterPage.tsx</code>). Уважно читайте <strong>детальні коментарі всередині коду</strong> — в них пояснюється використання методів та хуків.
                             </p>
                         </div>
                     </div>
                 </div>
 
-          
+                {/* Крок 1 */}
                 <div className="mb-10">
                     <div className="flex items-center gap-3 mb-3">
                         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm shadow-sm">1</span>
@@ -194,7 +196,7 @@ import counterReducer from './counterSlice.js';
 export const store = configureStore({
     reducer: {
         counter: counterReducer,
-        // сюди додаватимуться інші слайси (наприклад, user, cart тощо)
+        // сюди додаватимуться інші слайси
     }
 });
 
@@ -203,13 +205,14 @@ export type AppDispatch = typeof store.dispatch;`}</SyntaxHighliter>
                     </div>
                 </div>
 
+                {/* Крок 3 */}
                 <div className="mb-10">
                     <div className="flex items-center gap-3 mb-3">
                         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm shadow-sm">3</span>
                         <h3 className="text-xl font-bold text-gray-900">Підключаємо Provider</h3>
                     </div>
                     <p className="text-gray-600 ml-11 mb-3">
-                        Огортаємо весь додаток у компонент <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">&lt;Provider&gt;</code>, передаючи йому створений <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">store</code> (зазвичай у <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">main.tsx</code>).
+                        Огортаємо весь додаток у компонент <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">&lt;Provider&gt;</code>, передаючи йому створений <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">store</code>.
                     </p>
                     <div className="ml-11 max-w-3xl rounded-2xl overflow-hidden shadow-lg border border-gray-700 bg-gray-900">
                         <div className="bg-gray-800/80 px-4 py-2.5 flex items-center justify-between border-b border-gray-700/60">
@@ -234,7 +237,6 @@ import App from './App.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        {/* Provider робить глобальний store доступним для всіх дочірніх компонентів */}
         <Provider store={store}>
             <App />
         </Provider>
@@ -243,9 +245,60 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                     </div>
                 </div>
 
+                {/* Крок 4 */}
+                <div className="mb-10">
+                    <div className="flex items-center gap-3 mb-3">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm shadow-sm">4</span>
+                        <h3 className="text-xl font-bold text-gray-900">Використовуємо Redux у компоненті</h3>
+                    </div>
+                    <p className="text-gray-600 ml-11 mb-3">
+                        Використовуємо <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">useSelector</code> для читання стейту та <code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">useDispatch</code> для виклику екшенів редюсера.
+                    </p>
+                    <div className="ml-11 max-w-3xl rounded-2xl overflow-hidden shadow-lg border border-gray-700 bg-gray-900">
+                        <div className="bg-gray-800/80 px-4 py-2.5 flex items-center justify-between border-b border-gray-700/60">
+                            <span className="text-xs text-gray-300 font-mono flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+                                <span className="ml-2">./src/pages/CounterPage.tsx</span>
+                            </span>
+                        </div>
+                        <SyntaxHighliter
+                            language="tsx"
+                            style={atomDark}
+                            showLineNumbers
+                            wrapLongLines
+                            wrapLines
+                        >{`import { useDispatch, useSelector } from "react-redux";
+import { type AppDispatch, type RootState } from "../state/state.js";
+import { increment, decrement, setStep, reset } from "../state/counterSlice.js";
+
+const CounterPage = () => {
+    // 1. Читаємо стейт через useSelector та типізуємо через RootState
+    const { value, step } = useSelector((state: RootState) => state.counter);
+    
+    // 2. Ініціалізуємо dispatch за допомогою AppDispatch
+    const dispatch = useDispatch<AppDispatch>();
+
+    return (
+        <div>
+            <p>Значення: {value}</p>
+            {/* 3. Викликаємо екшени, створені редюсерами */}
+            <button onClick={() => dispatch(increment())}>+</button>
+            <button onClick={() => dispatch(setStep(5))}>Встановити крок 5</button>
+            <button onClick={() => dispatch(reset())}>Скинути</button>
+        </div>
+    );
+};
+
+export default CounterPage;`}</SyntaxHighliter>
+                    </div>
+                </div>
+
+                {/* Фінальна порада */}
                 <div className="ml-11 p-4 bg-blue-50 border-l-4 border-blue-600 rounded-r-2xl">
                     <p className="text-blue-900 font-medium text-sm">
-                        💡 Щоб додати новий функціонал у майбутньому, просто створюйте окремі слайси за аналогією з першим кроком та підключайте їх у головному об'єкті редюсерів сховища!
+                        💡 Щоб додати новий функціонал у майбутньому, просто створюйте окремі слайси за аналогією з першим кроком та підключайте їх у сховищі!
                     </p>
                 </div>
             </section>
