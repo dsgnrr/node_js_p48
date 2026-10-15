@@ -27,6 +27,11 @@ const HomePage = () => {
                 <li><Link className="hover:text-blue-800" to="/tanstack-query">Using tanstack query(React Query)</Link></li>
                 <li><Link className="hover:text-blue-800" to="/own-hooks">Using own hooks</Link></li>
             </ul>
+
+            <h1 className="text-2xl font-bold">Redux</h1>
+            <ul className="text-blue-600 text-2xl underline">
+                <li><Link className="hover:text-blue-800" to="/redux-counter">Counter</Link></li>
+            </ul>
         </div>
 
     )

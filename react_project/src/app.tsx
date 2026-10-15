@@ -20,6 +20,7 @@ import { ThemeContext, ThemeProvider } from "./context/theme-context.js";
 import { AuthProvider } from "./context/auth-context.js";
 import { LoginPage } from "./pages/auth_pages/login-page.js";
 import AuthRoute from "./components/auth/auth-route.js";
+import CounterPage from "./pages/redux_pages/counter-page.js";
 
 
 const NotFoundPage = () => <div>
@@ -89,16 +90,20 @@ const router = createBrowserRouter([
                 element: <OwnHooksPage />
             },
             {
-                path:'login',
-                element: <LoginPage/>
+                path: 'login',
+                element: <LoginPage />
             },
             {
-                path:'user',
-                element: <AuthRoute/>,
-                children:[
+                path: 'redux-counter',
+                element: <CounterPage />
+            },
+            {
+                path: 'user',
+                element: <AuthRoute />,
+                children: [
                     {
-                        path:'profile',
-                        element: <AuthProfilePage/>
+                        path: 'profile',
+                        element: <AuthProfilePage />
                     }
                 ]
             }
@@ -119,11 +124,11 @@ const App: React.FC = () => {
     // )
 
     return (
-        <ThemeProvider>
-            <AuthProvider>
-                <RouterProvider router={router} />
-            </AuthProvider>
-        </ThemeProvider>
+            <ThemeProvider>
+                <AuthProvider>
+                    <RouterProvider router={router} />
+                </AuthProvider>
+            </ThemeProvider>
     )
 }
 export default App;
