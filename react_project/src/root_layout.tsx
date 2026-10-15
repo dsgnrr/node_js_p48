@@ -17,6 +17,10 @@ const RootLayout: React.FC = () => {
                     <NavLink className="hover:text-neutral-400" to='/profile/1'>Profile1</NavLink>
                     <NavLink className="hover:text-neutral-400" to='/test'>Test404</NavLink>
                 </div>
+                <button onClick={()=>navigate('/login',{replace:true})} className="bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                    Login
+                </button>
+
             </header>
 
             {/* content */}

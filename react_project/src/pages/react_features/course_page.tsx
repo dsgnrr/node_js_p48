@@ -1,6 +1,6 @@
 import type React from "react"
-import type { ModuleFormData } from "../schemas/moduleSchema.js";
-import { moduleSchema } from "../schemas/moduleSchema.js";
+import type { ModuleFormData } from "../../schemas/moduleSchema.js";
+import { moduleSchema } from "../../schemas/moduleSchema.js";
 import { useState } from "react";
 
 const CoursePage: React.FC = () => {

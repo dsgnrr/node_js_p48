@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import useDebounce from "../hooks/use-debounce.js";
-import useLocalStorage from "../hooks/use-local-storage.js";
-import { ThemeContext, useTheme } from "../context/theme-context.js";
+import useDebounce from "../../hooks/use-debounce.js";
+import useLocalStorage from "../../hooks/use-local-storage.js";
+import { ThemeContext, useTheme } from "../../context/theme-context.js";
 
 const OwnHooksPage = () => {
 

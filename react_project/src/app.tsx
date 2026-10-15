@@ -1,21 +1,23 @@
 import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 
 import HomePage from "./pages/home.js";
-import ProfilePage from "./pages/profile.js";
+import ProfilePage from "./pages/react_features/profile.js";
 import RootLayout from "./root_layout.js";
 import React, { useState } from "react";
-import ClassPage from "./pages/class_component.js";
-import UseEffectPage from "./pages/use-effect.js";
-import PropsPage from "./pages/props.js";
-import UseRefPage from "./pages/use-ref.js";
-import SmartDubmCompPage from "./pages/smart-dumb-comp.js";
-import CoursePage from "./pages/course_page.js";
-import AuthForm from "./pages/hook-form.js";
-import ZodForm from "./pages/zod-resolver.js";
-import UserPage from "./pages/user-page.js";
-import TanStackQueryPage from "./pages/tanstack-query.js";
-import OwnHooksPage from "./pages/own-hooks.js";
+import ClassPage from "./pages/react_features/class_component.js";
+import UseEffectPage from "./pages/react_features/use-effect.js";
+import PropsPage from "./pages/react_features/props.js";
+import UseRefPage from "./pages/react_features/use-ref.js";
+import SmartDubmCompPage from "./pages/react_features/smart-dumb-comp.js";
+import CoursePage from "./pages/react_features/course_page.js";
+import AuthForm from "./pages/react_features/hook-form.js";
+import ZodForm from "./pages/react_features/zod-resolver.js";
+import UserPage from "./pages/react_features/user-page.js";
+import TanStackQueryPage from "./pages/react_features/tanstack-query.js";
+import OwnHooksPage from "./pages/react_features/own-hooks.js";
 import { ThemeContext, ThemeProvider } from "./context/theme-context.js";
+import { AuthProvider } from "./context/auth-context.js";
+import { LoginPage } from "./pages/auth_pages/login-page.js";
 
 
 const NotFoundPage = () => <div>
@@ -83,6 +85,10 @@ const router = createBrowserRouter([
             {
                 path: 'own-hooks',
                 element: <OwnHooksPage />
+            },
+            {
+                path:'login',
+                element: <LoginPage/>
             }
         ]
     },
@@ -102,7 +108,9 @@ const App: React.FC = () => {
 
     return (
         <ThemeProvider>
-            <RouterProvider router={router} />
+            <AuthProvider>
+                <RouterProvider router={router} />
+            </AuthProvider>
         </ThemeProvider>
     )
 }
