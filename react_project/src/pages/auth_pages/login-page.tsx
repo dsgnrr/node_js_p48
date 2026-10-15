@@ -18,7 +18,7 @@ export const LoginPage =()=>{
 
         try {
             await login({username, password});
-            // navigate('/auth',{replace:true});
+            navigate('/user/profile',{replace:true});
         } catch (error:any) {
             setError(error.message || 'Login or password isnt correct');
         }

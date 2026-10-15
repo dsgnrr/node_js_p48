@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
 
 import HomePage from "./pages/home.js";
 import ProfilePage from "./pages/react_features/profile.js";
+import AuthProfilePage from "./pages/auth_pages/profile-page.js";
 import RootLayout from "./root_layout.js";
 import React, { useState } from "react";
 import ClassPage from "./pages/react_features/class_component.js";
@@ -18,6 +19,7 @@ import OwnHooksPage from "./pages/react_features/own-hooks.js";
 import { ThemeContext, ThemeProvider } from "./context/theme-context.js";
 import { AuthProvider } from "./context/auth-context.js";
 import { LoginPage } from "./pages/auth_pages/login-page.js";
+import AuthRoute from "./components/auth/auth-route.js";
 
 
 const NotFoundPage = () => <div>
@@ -89,6 +91,16 @@ const router = createBrowserRouter([
             {
                 path:'login',
                 element: <LoginPage/>
+            },
+            {
+                path:'user',
+                element: <AuthRoute/>,
+                children:[
+                    {
+                        path:'profile',
+                        element: <AuthProfilePage/>
+                    }
+                ]
             }
         ]
     },
