@@ -108,6 +108,34 @@ const CounterPage = () => {
                     </div>
                 </div>
 
+                {/* Крок 0 */}
+                <div className="mb-10">
+                    <div className="flex items-center gap-3 mb-3">
+                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-600 text-white font-bold text-sm shadow-sm">0</span>
+                        <h3 className="text-xl font-bold text-gray-900">Встановлення пакетів</h3>
+                    </div>
+                    <p className="text-gray-600 ml-11 mb-3">
+                        Перш за все встановлюємо бібліотеку управління станом (<code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">Redux Toolkit</code>) та біндинги для React (<code className="font-mono text-xs bg-gray-200 px-1 py-0.5 rounded">react-redux</code>). TypeScript-типи вже входять до їх складу.
+                    </p>
+                    <div className="ml-11 max-w-3xl rounded-2xl overflow-hidden shadow-lg border border-gray-700 bg-gray-900">
+                        <div className="bg-gray-800/80 px-4 py-2.5 flex items-center justify-between border-b border-gray-700/60">
+                            <span className="text-xs text-gray-300 font-mono flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span>
+                                <span className="ml-2">terminal</span>
+                            </span>
+                        </div>
+                        <SyntaxHighliter
+                            language="bash"
+                            style={atomDark}
+                            showLineNumbers={false}
+                            wrapLongLines
+                            wrapLines
+                        >{`npm install @reduxjs/toolkit react-redux`}</SyntaxHighliter>
+                    </div>
+                </div>
+
                 {/* Крок 1 */}
                 <div className="mb-10">
                     <div className="flex items-center gap-3 mb-3">
